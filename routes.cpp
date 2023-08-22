@@ -2,15 +2,17 @@
 
 crow::response greet()
 {
-    return crow::response{""};
+    return crow::response{"Hello world!"};
 }
 crow::response add(const crow::request &req)
 {
     auto input = crow::json::load(req.body);
-    return crow::response{""};
+    auto res = input['first'] + input['second'];
+    return crow::response{"result":res};
 }
 crow::response subtract(const crow::request &req)
 {
     auto input = crow::json::load(req.body);
+    auto res = input['first'] - input['second'];
     return crow::response{""};
 }
