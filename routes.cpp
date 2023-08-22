@@ -7,12 +7,12 @@ crow::response greet()
 crow::response add(const crow::request &req)
 {
     auto input = crow::json::load(req.body);
-    auto res = input["first"].i() + input["second"].i();
+    int res = input["first"].i() + input["second"].i();
     return crow::response{"result":res};
 }
 crow::response subtract(const crow::request &req)
 {
     auto input = crow::json::load(req.body);
-    auto res = input['first'] - input['second'];
+    int res = input['first'] - input['second'];
     return crow::response{""};
 }
