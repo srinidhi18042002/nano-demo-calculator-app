@@ -13,15 +13,19 @@ crow::response add(const crow::request &req)
     {
         return crow::response(400, "Invalid JSON");
     }
+     int result = input["first"].i() + input["second"].i();
+     crow::json::wvalue response;
+     response["result"] = result;
+     return crow::response{response};     
 
-    int first = input["first"].i();
-    int second = input["second"].i();
-    int result = first + second;
+    // int first = input["first"].i();
+    // int second = input["second"].i();
+    // int result = first + second;
 
-    crow::json::wvalue response;
-    response["result"] = result;
+    // crow::json::wvalue response;
+    // response["result"] = result;
 
-    return crow::response{response};
+    // return crow::response{response};
 }
 
 crow::response subtract(const crow::request &req)
